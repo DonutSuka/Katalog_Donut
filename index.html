@@ -3,40 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kentang Keju - Produk Snack Berkualitas</title>
+    <title>Arya's Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Reset and Base Styles */
         :root {
-            --primary: #FFD166;
-            --secondary: #FF9F1C;
-            --light: #FFF8E8;
-            --dark: #2B2B2B;
-            --accent: #EF476F;
+            --primary: #2A4B7C;
+            --secondary: #5D7BA6;
+            --accent: #FF7E5F;
+            --light: #F8FAFC;
+            --dark: #1E293B;
+            --gray: #64748B;
+            --light-gray: #E2E8F0;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
+            font-family: 'Inter', sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
         
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: 5rem 0;
         }
         
         /* Header Styles */
         header {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -46,154 +71,159 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo img {
-            height: 50px;
-            border-radius: 50%;
-        }
-        
-        .logo h1 {
+            font-family: 'Manrope', sans-serif;
             font-size: 1.5rem;
-            color: var(--secondary);
             font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 101;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
-        }
-        
-        nav ul li {
-            position: relative;
+            gap: 2rem;
         }
         
         nav ul li a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
         }
         
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-        
-        .dropdown-menu {
+        nav ul li a:after {
+            content: '';
             position: absolute;
-            top: 100%;
+            bottom: 0;
             left: 0;
-            background: white;
-            width: 200px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            padding: 10px 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
         }
         
-        nav ul li:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .dropdown-menu li {
-            padding: 8px 15px;
-        }
-        
-        .dropdown-menu li a {
-            display: block;
+        nav ul li a:hover:after {
             width: 100%;
         }
         
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
+        nav ul li a:hover {
+            color: var(--primary);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 60px 0;
+            padding: 6rem 0;
             text-align: center;
-            margin-bottom: 40px;
         }
         
-        .hero h2 {
+        .hero .container {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem;
         }
         
         .hero p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background-color: #FF6B4D;
         }
         
         /* Products Section */
         .products {
-            padding: 40px 0;
+            background-color: white;
         }
         
-        .section-title {
+        .section-header {
             text-align: center;
-            margin-bottom: 40px;
-            position: relative;
+            margin-bottom: 3rem;
         }
         
-        .section-title h2 {
+        .section-header h2 {
             font-size: 2rem;
-            color: var(--secondary);
-            display: inline-block;
-            padding-bottom: 10px;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--accent);
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
         
         .product-card {
-            background: white;
-            border-radius: 10px;
+            background-color: white;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--light-gray);
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
         .product-image {
-            height: 200px;
+            height: 220px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
         
@@ -201,158 +231,227 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: var(--transition);
         }
         
         .product-card:hover .product-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .product-info {
-            padding: 20px;
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
-        .product-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--secondary);
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
         
         .product-price {
-            font-weight: bold;
+            font-weight: 700;
             color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
         }
         
-        .product-desc {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+        .product-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex: 1;
+            font-size: 0.9375rem;
         }
         
-        .product-features {
-            font-size: 0.85rem;
-            color: var(--dark);
-            padding-top: 10px;
-            border-top: 1px dashed #ddd;
-        }
-        
-        .product-features i {
+        .product-category {
+            display: inline-block;
+            background-color: var(--light-gray);
             color: var(--primary);
-            margin-right: 5px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: auto;
+            align-self: flex-start;
         }
         
-        /* Footer */
+        /* Location Section */
+        .location {
+            background-color: var(--light);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 3rem;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .location-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .info-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .info-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .info-card i {
+            color: var(--accent);
+            margin-top: 3px;
+        }
+        
+        /* Footer Styles */
         footer {
-            background: var(--dark);
+            background-color: var(--primary);
             color: white;
-            padding: 50px 0 20px;
-            margin-top: 60px;
+            padding: 4rem 0 2rem;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
         .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: white;
         }
         
-        .footer-column p {
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .footer-column p, .footer-column a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9375rem;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            transform: translateX(5px);
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
         
         .social-links a {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.1);
+            background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
             color: white;
-            text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
-            background: var(--primary);
-            color: var(--dark);
+            background-color: var(--accent);
             transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.8rem;
-            opacity: 0.7;
         }
         
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            background: #25D366;
+            gap: 0.5rem;
+            background-color: var(--accent);
             color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
             text-decoration: none;
-            margin-top: 10px;
-            transition: all 0.3s;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
         }
         
         .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
+            background-color: #FF6B4D;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
         
-        .whatsapp-btn i {
-            margin-right: 8px;
-            font-size: 1.2rem;
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
         }
         
         /* Responsive Styles */
+        @media (max-width: 1024px) {
+            section {
+                padding: 4rem 0;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: var(--transition);
+                padding: 6rem 2rem 2rem;
+                z-index: 100;
+            }
+            
+            nav.active {
+                right: 0;
             }
             
             nav ul {
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
+                gap: 1.5rem;
             }
             
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                box-shadow: none;
-                width: 100%;
-                text-align: center;
-                display: none;
-            }
-            
-            nav ul li:hover .dropdown-menu {
-                display: block;
-            }
-            
-            .hero h2 {
+            .hero h1 {
                 font-size: 2rem;
             }
             
@@ -360,31 +459,34 @@
                 font-size: 1rem;
             }
             
-            .section-title h2 {
-                font-size: 1.5rem;
+            .section-header h2 {
+                font-size: 1.75rem;
             }
         }
         
         @media (max-width: 480px) {
-            .header-container {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
+            section {
+                padding: 3rem 0;
             }
             
             .hero {
-                padding: 40px 0;
+                padding: 4rem 0;
             }
             
-            .hero h2 {
-                font-size: 1.8rem;
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -393,29 +495,16 @@
     <!-- Header Section -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/50" alt="Kentang Keju Logo">
-                <h1>Kentang Keju</h1>
-            </div>
-            
-            <button class="mobile-menu-btn">
+            <a href="#" class="logo">Arya's<span>Collection</span></a>
+            <button class="menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
-            
-            <nav>
+            <nav id="main-nav">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li>
-                        <a href="#">Produk</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Kentang Keju Original</a></li>
-                            <li><a href="#">Kentang Keju Pedas</a></li>
-                            <li><a href="#">Kentang Keju BBQ</a></li>
-                            <li><a href="#">Paket Hemat</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Kontak</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#location">Lokasi</a></li>
+                    <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
         </div>
@@ -424,183 +513,228 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Snack Kentang Keju Berkualitas</h2>
-            <p>Dibuat dari bahan pilihan dengan racikan khusus yang membuat setiap gigitan terasa gurih, renyah, dan nikmat. Cocok untuk teman santai atau camilan diet sehat.</p>
+            <h1>Kreasi Donat & Risol Premium</h1>
+            <p>Setiap gigitan adalah pengalaman istimewa dengan bahan pilihan dan pembuatan yang penuh dedikasi. Temukan kenikmatan dalam setiap varian kami.</p>
+            <a href="#products" class="cta-button">
+                <i class="fas fa-utensils"></i> Lihat Produk
+            </a>
         </div>
     </section>
     
     <!-- Products Section -->
-    <section class="products">
+    <section class="products" id="products">
         <div class="container">
-            <div class="section-title">
-                <h2>Produk Kami</h2>
+            <div class="section-header">
+                <h2>Katalog Produk Kami</h2>
+                <p>Berbagai pilihan donat, risol, dan bucket custom dengan kualitas premium dan rasa yang memikat</p>
             </div>
             
+            <h3 class="product-category-title">Donat</h3>
             <div class="product-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Kentang Keju Original">
+                        <img src="taro.png" alt="Donat Taro">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Kentang Keju Original</h3>
-                        <div class="product-price">Rp12.000</div>
-                        <p class="product-desc">Kentang goreng renyah dengan taburan keju cheddar yang melimpah.</p>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Dibuat dari kentang pilihan</p>
-                            <p><i class="fas fa-check"></i> Keju impor berkualitas</p>
-                            <p><i class="fas fa-check"></i> Tanpa pengawet</p>
-                        </div>
+                        <h3 class="product-name">Donat Taro Premium</h3>
+                        <p class="product-price">Rp 12.000</p>
+                        <p class="product-description">Donat lembut dengan isian selai taro premium yang creamy dan tidak terlalu manis.</p>
+                        <span class="product-category">Donat</span>
                     </div>
                 </div>
-                
+
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Kentang Keju Pedas">
+                        <img src="Donut matcha.png" alt="Donat Matcha">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Kentang Keju Pedas</h3>
-                        <div class="product-price">Rp15.000</div>
-                        <p class="product-desc">Perpaduan gurih keju dan pedas yang menggugah selera.</p>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Level pedas bisa disesuaikan</p>
-                            <p><i class="fas fa-check"></i> Cabai pilihan asli Indonesia</p>
-                            <p><i class="fas fa-check"></i> Cocok untuk pecinta pedas</p>
-                        </div>
+                        <h3 class="product-name">Donat Matcha Jepang</h3>
+                        <p class="product-price">Rp 15.000</p>
+                        <p class="product-description">Dengan bubuk matcha asli dari Jepang, memberikan rasa autentik yang nikmat.</p>
+                        <span class="product-category">Donat</span>
                     </div>
                 </div>
-                
+
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Kentang Keju BBQ">
+                        <img src="Donut coklat.png" alt="Donat Coklat Belgia">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Kentang Keju BBQ</h3>
-                        <div class="product-price">Rp15.000</div>
-                        <p class="product-desc">Rasa BBQ smokey yang unik dipadukan dengan keju leleh.</p>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Bumbu BBQ racikan khusus</p>
-                            <p><i class="fas fa-check"></i> Kombinasi rasa manis dan gurih</p>
-                            <p><i class="fas fa-check"></i> Paling laris!</p>
-                        </div>
+                        <h3 class="product-name">Donat Coklat Belgia</h3>
+                        <p class="product-price">Rp 14.000</p>
+                        <p class="product-description">Menggunakan coklat Belgia premium dengan kadar kakao 70% untuk rasa yang kaya.</p>
+                        <span class="product-category">Donat</span>
                     </div>
                 </div>
-                
-                <!-- Product 4 -->
+            </div>
+            
+            <h3 class="product-category-title" style="margin-top: 3rem;">Risol</h3>
+            <div class="product-grid">
+                <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Paket Hemat 3 Rasa">
+                        <img src="risol-mayo.png" alt="Risol Mayo Special">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Paket Hemat 3 Rasa</h3>
-                        <div class="product-price">Rp35.000</div>
-                        <p class="product-desc">Nikmati semua varian rasa dengan harga lebih hemat.</p>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Hemat hingga Rp10.000</p>
-                            <p><i class="fas fa-check"></i> Cocok untuk acara</p>
-                            <p><i class="fas fa-check"></i> Bisa custom level pedas</p>
-                        </div>
+                        <h3 class="product-name">Risol Mayo Special</h3>
+                        <p class="product-price">Rp 8.000</p>
+                        <p class="product-description">Kulit risol renyah dengan isian mayo homemade dan daging asap premium.</p>
+                        <span class="product-category">Risol</span>
                     </div>
                 </div>
-                
-                <!-- Product 5 -->
+
+                <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Kentang Keju Diet">
+                        <img src="risol-keju.png" alt="Risol Keju Mozzarella">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Kentang Keju Diet</h3>
-                        <div class="product-price">Rp18.000</div>
-                        <p class="product-desc">Versi rendah kalori untuk yang sedang menjalani program diet.</p>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Dipanggang bukan digoreng</p>
-                            <p><i class="fas fa-check"></i> Keju rendah lemak</p>
-                            <p><i class="fas fa-check"></i> Hanya 150 kalori per porsi</p>
-                        </div>
+                        <h3 class="product-name">Risol Keju Mozzarella</h3>
+                        <p class="product-price">Rp 10.000</p>
+                        <p class="product-description">Keju mozzarella lumer dengan tambahan jamur pilihan.</p>
+                        <span class="product-category">Risol</span>
                     </div>
                 </div>
-                
-                <!-- Product 6 -->
+            </div>
+            
+            <h3 class="product-category-title" style="margin-top: 3rem;">Bucket Custom</h3>
+            <div class="product-grid">
+                <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1629115916087-7e8c114a24ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Kentang Keju Extra Cheese">
+                        <img src="bucket-premium.png" alt="Bucket Premium 20pcs">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Kentang Keju Extra Cheese</h3>
-                        <div class="product-price">Rp20.000</div>
-                        <p class="product-desc">Untuk pecinta keju sejati, dengan taburan keju 2x lipat!</p>
-                        <div class="product-features">
-                            <p><i class="fas fa-check"></i> Keju mozzarella & cheddar</p>
-                            <p><i class="fas fa-check"></i> Cheese pull yang memuaskan</p>
-                            <p><i class="fas fa-check"></i> Best seller!</p>
-                        </div>
+                        <h3 class="product-name">Bucket Premium 20pcs</h3>
+                        <p class="product-price">Rp 250.000</p>
+                        <p class="product-description">Paket lengkap 20 donat premium dengan pilihan varian dan dekorasi custom.</p>
+                        <span class="product-category">Bucket</span>
                     </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="bucket-mix.png" alt="Bucket Mix Donat & Risol">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bucket Mix Donat & Risol</h3>
+                        <p class="product-price">Rp 180.000</p>
+                        <p class="product-description">Kombinasi sempurna 10 donat dan 10 risol pilihan dengan kemasan eksklusif.</p>
+                        <span class="product-category">Bucket</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Temukan Toko Kami</h2>
+                <p>Kunjungi outlet kami untuk pengalaman membeli langsung dan konsultasi produk</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3953.2061962264934!2d112.135086!3d-7.767946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwNDYnMDQuNiJTIDExMsKwMDgnMDYuMyJF!5e0!3m2!1sid!2sid!4v1748958622868!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div class="location-info">
+                <div class="info-card">
+                    <h3>Lokasi Toko</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Jl. Diponegoro No. 123, Sambirejo, Kec. Pare, Kabupaten Kediri, Jawa Timur 64226</p>
+                    <p><i class="fas fa-subway"></i>5 menit dari Stasiun Pare</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Jam Operasional</h3>
+                    <p><i class="fas fa-clock"></i> Senin-Kamis: 09.00 - 16.00 WIB</p>
+                    <p><i class="fas fa-clock"></i> Sabtu-Minggu: 08.00 - 17.00 WIB</p>
+                    <p><i class="fas fa-calendar-times"></i> Tutup setiap hari Jumat</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Footer Section -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Kentang Keju</h3>
-                    <p>UMKM yang berdedikasi menyediakan camilan kentang keju berkualitas dengan harga terjangkau.</p>
+                    <h3>Tentang Kami</h3>
+                    <p>Arya's Collection menyajikan produk bakery premium dengan bahan pilihan dan racikan khusus sejak 2020.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/donut_suka2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/aryaanieaya" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/donatsukasuka" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Jl. Snack Enak No. 123, Jakarta</p>
-                    <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> halo@kentangkeju.com</p>
-                    <a href="https://wa.me/6281234567890" class="whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Jl. Diponegoro, Sambirejo, Pare, Kediri</p>
+                    <p><i class="fas fa-phone"></i>0895-4114-0001</p>
+                    <p><i class="fas fa-envelope"></i>hello@aryacollection.com</p>
+                    <a href="https://wa.me/62895410714001" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Jam Operasional</h3>
-                    <p>Senin - Jumat: 09.00 - 20.00</p>
-                    <p>Sabtu - Minggu: 10.00 - 22.00</p>
-                    <h3 style="margin-top: 20px;">Metode Pembayaran</h3>
-                    <p>Transfer Bank, E-Wallet, COD (area terbatas)</p>
+                    <h3>Layanan</h3>
+                    <a href="#products">Produk Kami</a>
+                    <a href="#location">Lokasi Toko</a>
+                    <a href="#">Pemesanan Online</a>
+                    <a href="#">Bucket Custom</a>
+                    <a href="#">Catering & Event</a>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Kentang Keju. All Rights Reserved.</p>
+                <p>&copy; 2025 Arya's Collection. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            menuToggle.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
-        // Dropdown menu for mobile
-        if (window.innerWidth <= 768) {
-            const dropdownParents = document.querySelectorAll('nav ul li');
-            dropdownParents.forEach(parent => {
-                parent.addEventListener('click', function(e) {
-                    if (this.querySelector('.dropdown-menu')) {
-                        e.preventDefault();
-                        const dropdown = this.querySelector('.dropdown-menu');
-                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                    }
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
-        }
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.style.boxShadow = window.scrollY > 10 ? '0 4px 12px rgba(0,0,0,0.1)' : 'none';
+        });
     </script>
 </body>
-</html>
+    </html>
