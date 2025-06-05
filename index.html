@@ -69,7 +69,7 @@
         /* Header Styles */
         header {
             background-color: white;
-            padding: 1.25rem 0;
+            padding: 1rem 0;
             box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
@@ -84,22 +84,24 @@
         }
         
         .logo {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.75rem;
-            font-weight: 400;
-            color: var(--soft-purple);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            text-decoration: none;
         }
         
-        .logo i {
-            font-size: 1.75rem;
-            color: var(--candy-pink);
+        .logo-img {
+            height: 50px;
+            width: auto;
         }
         
-        .logo span {
+        .logo-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--soft-purple);
+        }
+        
+        .logo-text span {
             color: var(--baby-blue);
         }
         
@@ -186,6 +188,7 @@
         .cta-button {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
             background-color: var(--candy-pink);
             color: var(--dark);
@@ -195,10 +198,11 @@
             font-weight: 700;
             transition: var(--transition);
             box-shadow: var(--shadow-md);
-            border: none;
+            border: 2px solid transparent;
             cursor: pointer;
             font-size: 1.1rem;
-            border: 2px solid transparent;
+            min-width: 200px;
+            margin: 0.5rem;
         }
         
         .cta-button:hover {
@@ -207,6 +211,13 @@
             background-color: var(--light);
             border-color: var(--candy-pink);
             color: var(--dark);
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
         }
         
         /* Products Section */
@@ -485,6 +496,7 @@
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
             background-color: var(--lemon);
             color: var(--dark);
@@ -497,6 +509,7 @@
             font-size: 1rem;
             border: 2px solid transparent;
             box-shadow: var(--shadow-sm);
+            min-width: 250px;
         }
         
         .whatsapp-btn:hover {
@@ -504,6 +517,29 @@
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
             border-color: var(--lemon);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            color: var(--candy-pink);
+            font-size: 1.25rem;
+            margin-top: 4px;
+        }
+        
+        .contact-text {
+            color: rgba(33,33,33,0.9);
+            font-weight: 700;
         }
         
         .copyright {
@@ -583,6 +619,21 @@
             .location-info {
                 grid-template-columns: 1fr;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .whatsapp-btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -611,17 +662,20 @@
                 font-size: 2rem;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .logo-img {
+                height: 40px;
             }
             
-            .logo {
-                font-size: 1.5rem;
+            .logo-text {
+                font-size: 1.25rem;
             }
             
             .product-card {
                 border-width: 1px;
+            }
+            
+            .info-card {
+                padding: 2rem;
             }
         }
         
@@ -635,13 +689,12 @@
                 padding: 0.75rem;
             }
             
-            .cta-button, .whatsapp-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
             .product-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
             }
         }
         
@@ -710,8 +763,8 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <i class="fas fa-utensils"></i>
-                Arya's<span>Collection</span>
+                <img src="https://via.placeholder.com/50x50" alt="Arya's Collection Logo" class="logo-img">
+                <span class="logo-text">Arya's<span>Collection</span></span>
             </a>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
@@ -726,18 +779,23 @@
             </nav>
         </div>
     </header>
-    
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1 class="fade-in">Kreasi Donat & Risol Premium</h1>
             <p class="fade-in delay-1">Setiap gigitan adalah pengalaman istimewa dengan bahan pilihan dan pembuatan yang penuh dedikasi. Temukan kenikmatan dalam setiap varian kami.</p>
-            <a href="#products" class="cta-button fade-in delay-2">
-                <i class="fas fa-utensils"></i> Lihat Produk
-            </a>
+            <div class="button-group">
+                <a href="#products" class="cta-button fade-in delay-2">
+                    <i class="fas fa-utensils"></i> Lihat Produk
+                </a>
+                <a href="#contact" class="cta-button fade-in delay-2">
+                    <i class="fas fa-phone-alt"></i> Hubungi Kami
+                </a>
+            </div>
         </div>
     </section>
-    
+
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
@@ -847,7 +905,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Location Section -->
     <section class="location" id="location">
         <div class="container">
@@ -877,7 +935,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer Section -->
     <footer id="contact">
         <div class="container">
@@ -894,22 +952,27 @@
                 
                 <div class="footer-column">
                     <h3>Kontak Kami</h3>
-                    <p><i class="fas fa-map-marker-alt"></i>Jl. Diponegoro, Sambirejo, Pare, Kediri</p>
-                    <p><i class="fas fa-phone"></i>0895-4114-0001</p>
-                    <p><i class="fas fa-envelope"></i>hello@aryacollection.com</p>
-                    <p><i class="fas fa-truck"></i>Pengiriman seluruh area Kediri</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <span class="contact-text">Jl. Diponegoro, Sambirejo, Pare, Kediri</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <span class="contact-text">0895-4114-0001</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <span class="contact-text">hello@aryacollection.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-truck contact-icon"></i>
+                            <span class="contact-text">Pengiriman seluruh area Kediri</span>
+                        </div>
+                    </div>
                     <a href="https://wa.me/62895410714001" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
                     </a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Layanan</h3>
-                    <a href="#products"><i class="fas fa-chevron-right"></i> Produk Kami</a>
-                    <a href="#location"><i class="fas fa-chevron-right"></i> Lokasi Toko</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Pemesanan Online</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Bucket Custom</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Catering & Event</a>
                 </div>
             </div>
             
@@ -992,4 +1055,4 @@
         window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
-            </html>
+    </html>
