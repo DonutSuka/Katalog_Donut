@@ -7,15 +7,17 @@
     <meta name="description" content="Toko donat dan risol premium dengan bahan pilihan. Pengiriman ke seluruh Pare, Kediri.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Reset and Base Styles */
         :root {
-            --beige: #FFF8E1;
-            --black: #212121;
-            --gold: #FFD600;
-            --olive: #827717;
+            --cream: #FFF2E2;
+            --golden-brown: #D6A85A;
+            --dark-charcoal: #263238;
+            --light: #FFFFFF;
+            --gray: #757575;
+            --light-gray: #F5F5F5;
             --border-radius: 16px;
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
@@ -34,9 +36,9 @@
         }
         
         body {
-            font-family: 'Roboto Slab', serif;
-            background-color: var(--beige);
-            color: var(--black);
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--light);
+            color: var(--dark-charcoal);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -44,10 +46,10 @@
         
         /* Typography */
         h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             line-height: 1.3;
-            color: var(--olive);
+            color: var(--golden-brown);
             letter-spacing: 0.5px;
         }
         
@@ -64,7 +66,7 @@
         
         /* Header Styles */
         header {
-            background-color: var(--beige);
+            background-color: var(--cream);
             padding: 1rem 0;
             box-shadow: var(--shadow-sm);
             position: sticky;
@@ -92,20 +94,20 @@
         }
         
         .logo-text {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
-            color: var(--olive);
+            color: var(--golden-brown);
         }
         
         .logo-text span {
-            color: var(--black);
+            color: var(--dark-charcoal);
         }
         
         .menu-toggle {
             display: none;
             background: none;
             border: none;
-            color: var(--olive);
+            color: var(--golden-brown);
             font-size: 1.75rem;
             cursor: pointer;
             z-index: 101;
@@ -120,7 +122,7 @@
         
         nav ul li a {
             text-decoration: none;
-            color: var(--black);
+            color: var(--dark-charcoal);
             font-weight: 700;
             font-size: 1.1rem;
             transition: var(--transition);
@@ -135,7 +137,7 @@
             left: 0;
             width: 0;
             height: 3px;
-            background-color: var(--gold);
+            background-color: var(--golden-brown);
             transition: var(--transition);
             border-radius: 3px;
         }
@@ -145,13 +147,13 @@
         }
         
         nav ul li a:hover {
-            color: var(--olive);
+            color: var(--golden-brown);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(130, 119, 23, 0.9) 0%, rgba(255, 214, 0, 0.9) 100%), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            color: var(--beige);
+            background: linear-gradient(135deg, rgba(214, 168, 90, 0.9) 0%, rgba(255, 242, 226, 0.9) 100%), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: var(--dark-charcoal);
             padding: 7rem 0;
             text-align: center;
             position: relative;
@@ -166,16 +168,16 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
-            color: var(--beige);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: var(--dark-charcoal);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
             font-weight: 700;
-            color: var(--black);
-            background-color: rgba(255, 248, 225, 0.9);
+            color: var(--dark-charcoal);
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 1rem;
             border-radius: var(--border-radius);
             display: inline-block;
@@ -186,8 +188,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
-            background-color: var(--olive);
-            color: var(--beige);
+            background-color: var(--golden-brown);
+            color: var(--light);
             padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -204,9 +206,9 @@
         .cta-button:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
-            background-color: var(--beige);
-            border-color: var(--olive);
-            color: var(--olive);
+            background-color: var(--light);
+            border-color: var(--golden-brown);
+            color: var(--golden-brown);
         }
         
         .button-group {
@@ -218,7 +220,7 @@
         
         /* Products Section */
         .products {
-            background-color: var(--beige);
+            background-color: var(--cream);
         }
         
         .section-header {
@@ -228,12 +230,12 @@
         
         .section-header h2 {
             font-size: 2.5rem;
-            color: var(--olive);
+            color: var(--golden-brown);
             margin-bottom: 1.5rem;
         }
         
         .section-header p {
-            color: var(--black);
+            color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.15rem;
@@ -243,9 +245,9 @@
         .product-category-title {
             font-size: 1.75rem;
             margin: 4rem 0 2rem;
-            color: var(--olive);
+            color: var(--golden-brown);
             padding-bottom: 0.5rem;
-            border-bottom: 3px dashed var(--gold);
+            border-bottom: 3px dashed var(--golden-brown);
             text-align: center;
         }
         
@@ -264,18 +266,18 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--golden-brown);
         }
         
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--olive);
+            border-color: var(--dark-charcoal);
         }
         
         .product-image {
             height: 250px;
-            background-color: var(--beige);
+            background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -304,20 +306,20 @@
         .product-name {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--black);
+            color: var(--dark-charcoal);
             margin-bottom: 0.75rem;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         .product-price {
             font-weight: 700;
-            color: var(--olive);
+            color: var(--golden-brown);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
         
         .product-description {
-            color: var(--black);
+            color: var(--gray);
             margin-bottom: 1.5rem;
             flex: 1;
             font-size: 1rem;
@@ -326,8 +328,8 @@
         
         .product-category {
             display: inline-block;
-            background-color: var(--gold);
-            color: var(--black);
+            background-color: var(--golden-brown);
+            color: var(--light);
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
             font-size: 0.875rem;
@@ -349,7 +351,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-sm);
             margin-bottom: 4rem;
-            border: 2px solid var(--gold);
+            border: 2px solid var(--golden-brown);
         }
         
         .map-container iframe {
@@ -365,22 +367,22 @@
         }
         
         .info-card {
-            background-color: var(--beige);
+            background-color: var(--cream);
             padding: 2.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
-            border: 2px solid var(--gold);
+            border: 2px solid var(--golden-brown);
             transition: var(--transition);
         }
         
         .info-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--olive);
+            border-color: var(--dark-charcoal);
         }
         
         .info-card h3 {
-            color: var(--olive);
+            color: var(--golden-brown);
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
             position: relative;
@@ -394,12 +396,12 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background-color: var(--gold);
+            background-color: var(--golden-brown);
             border-radius: 2px;
         }
         
         .info-card p {
-            color: var(--black);
+            color: var(--gray);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: flex-start;
@@ -409,15 +411,15 @@
         }
         
         .info-card i {
-            color: var(--olive);
+            color: var(--golden-brown);
             margin-top: 4px;
             font-size: 1.25rem;
         }
         
         /* Footer Styles */
         footer {
-            background: linear-gradient(135deg, var(--olive) 0%, var(--black) 100%);
-            color: var(--beige);
+            background: linear-gradient(135deg, var(--golden-brown) 0%, var(--dark-charcoal) 100%);
+            color: var(--light);
             padding: 6rem 0 3rem;
         }
         
@@ -431,7 +433,7 @@
         .footer-column h3 {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            color: var(--beige);
+            color: var(--light);
             position: relative;
             padding-bottom: 1rem;
         }
@@ -443,12 +445,12 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background-color: var(--gold);
+            background-color: var(--cream);
             border-radius: 2px;
         }
         
         .footer-column p, .footer-column a {
-            color: rgba(255, 248, 225, 0.9);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
             display: block;
             text-decoration: none;
@@ -459,7 +461,7 @@
         }
         
         .footer-column a:hover {
-            color: var(--beige);
+            color: var(--cream);
             transform: translateX(8px);
         }
         
@@ -475,18 +477,18 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background-color: rgba(255, 248, 225, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
-            color: var(--beige);
+            color: var(--light);
             transition: var(--transition);
             font-size: 1.25rem;
             border: 2px solid transparent;
         }
         
         .social-links a:hover {
-            background-color: var(--olive);
+            background-color: var(--golden-brown);
             transform: translateY(-5px);
-            border-color: var(--beige);
+            border-color: var(--cream);
         }
         
         /* Improved WhatsApp Button */
@@ -536,21 +538,21 @@
         }
         
         .contact-icon {
-            color: var(--gold);
+            color: var(--cream);
             font-size: 1.25rem;
             margin-top: 4px;
         }
         
         .contact-text {
-            color: rgba(255, 248, 225, 0.9);
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 700;
         }
         
         .copyright {
             text-align: center;
             padding-top: 3rem;
-            border-top: 2px dashed rgba(255, 248, 225, 0.2);
-            color: rgba(255, 248, 225, 0.8);
+            border-top: 2px dashed rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1rem;
             font-weight: 700;
         }
@@ -583,7 +585,7 @@
                 width: 85%;
                 max-width: 320px;
                 height: 100vh;
-                background-color: var(--beige);
+                background-color: var(--cream);
                 box-shadow: -5px 0 25px rgba(0,0,0,0.1);
                 transition: var(--transition);
                 padding: 6rem 2rem 2rem;
@@ -734,7 +736,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--beige);
+            background-color: var(--cream);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -750,8 +752,8 @@
         .loader {
             width: 60px;
             height: 60px;
-            border: 6px solid var(--gold);
-            border-bottom-color: var(--olive);
+            border: 6px solid var(--golden-brown);
+            border-bottom-color: var(--dark-charcoal);
             border-radius: 50%;
             display: inline-block;
             box-sizing: border-box;
@@ -774,7 +776,7 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="https://via.placeholder.com/50x50" alt="Arya's Collection Logo" class="logo-img">
+                <img src="taro.png" alt="Arya's Collection Logo" class="logo-img">
                 <span class="logo-text">Arya's<span>Collection</span></span>
             </a>
             <button class="menu-toggle" aria-label="Toggle menu">
